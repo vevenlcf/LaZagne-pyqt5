@@ -154,7 +154,7 @@ class MyWindow(QMainWindow, Ui_MainWindow, QThread):
         PPoptional = argparse.ArgumentParser(
             add_help=False,
             formatter_class=lambda prog: argparse.HelpFormatter(prog,
-                                                                max_help_position=constant.MAX_HELP_POSITION)
+                                                                max_help_position=constant.max_help)
         )
         PPoptional._optionals.title = 'optional arguments'
         PPoptional.add_argument('-v', dest='verbose', action='count', default=0, help='increase verbosity level')
@@ -165,7 +165,7 @@ class MyWindow(QMainWindow, Ui_MainWindow, QThread):
         PWrite = argparse.ArgumentParser(
             add_help=False,
             formatter_class=lambda prog: argparse.HelpFormatter(prog,
-                                                                max_help_position=constant.MAX_HELP_POSITION)
+                                                                max_help_position=constant.max_help)
         )
         PWrite._optionals.title = 'Output'
         PWrite.add_argument('-oN', dest='write_normal', action='store_true', default=None,
@@ -182,7 +182,7 @@ class MyWindow(QMainWindow, Ui_MainWindow, QThread):
             add_help=False,
             formatter_class=lambda prog: argparse.HelpFormatter(
                 prog,
-                max_help_position=constant.MAX_HELP_POSITION)
+                max_help_position=constant.max_help)
         )
         PPwd._optionals.title = 'Windows User Password'
         PPwd.add_argument('-password', dest='password', action='store',
@@ -195,7 +195,7 @@ class MyWindow(QMainWindow, Ui_MainWindow, QThread):
             all_categories[c]['parser'] = argparse.ArgumentParser(
                 add_help=False,
                 formatter_class=lambda prog: argparse.HelpFormatter(prog,
-                                                                    max_help_position=constant.MAX_HELP_POSITION)
+                                                                    max_help_position=constant.max_help)
             )
             all_categories[c]['parser']._optionals.title = all_categories[c]['help']
 
@@ -214,7 +214,7 @@ class MyWindow(QMainWindow, Ui_MainWindow, QThread):
                             add_help=False,
                             formatter_class=lambda prog: argparse.HelpFormatter(
                                 prog,
-                                max_help_position=constant.MAX_HELP_POSITION)
+                                max_help_position=constant.max_help)
                         )
                         tmp_subparser._optionals.title = sub['title']
                         if 'type' in sub:

@@ -10,7 +10,7 @@ class OpenSSHForWindows(ModuleInfo):
 
     def __init__(self):
         ModuleInfo.__init__(self, 'opensshforwindows', 'sysadmin')
-        self.key_files_location = os.path.join(constant.profile["USERPROFILE"], u'.ssh')
+        #self.key_files_location = os.path.join(constant.profile["USERPROFILE"], u'.ssh')
 
     # Retrieve SSH private key even if a passphrase is set (the goal is to remove crypto dependency)
     # def is_private_key_unprotected(self, key_content_encoded, key_algorithm):
@@ -58,7 +58,7 @@ class OpenSSHForWindows(ModuleInfo):
                             # Determine the type of the key (public/private) and what is it algorithm
                             if "DSA PRIVATE KEY" in key_content_encoded:
                                 key_algorithm = "DSA"
-                            elif "RSA PRIVATE KEY" in key_content_encoded:
+                            elif "RSA PRIVATE KEY" in key_content_encoded or "OPENSSH PRIVATE KEY" in key_content_encoded:
                                 key_algorithm = "RSA"
                             else:
                                 key_algorithm = None
@@ -77,14 +77,14 @@ class OpenSSHForWindows(ModuleInfo):
         """
         Main function
         """
-
+        self.key_files_location = os.path.join(constant.profile["USERPROFILE"], u'.ssh')
         # Extract all DSA/RSA private keys that are not protected with a passphrase
         unprotected_private_keys = self.extract_private_keys_unprotected()
 
         # Parse and process the list of keys
         key_found = []
         for key in unprotected_private_keys:
-            values = {"PrivateKey": key}
+            values = {"Privatekey": key}
             key_found.append(values)
 
         return key_found

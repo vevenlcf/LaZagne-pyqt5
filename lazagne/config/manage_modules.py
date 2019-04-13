@@ -13,8 +13,8 @@ from lazagne.softwares.databases.postgresql import PostgreSQL
 from lazagne.softwares.databases.robomongo import Robomongo
 from lazagne.softwares.databases.sqldeveloper import SQLDeveloper
 from lazagne.softwares.databases.squirrel import Squirrel
-from lazagne.softwares.games.galconfusion import GalconFusion
 # Games
+from lazagne.softwares.games.galconfusion import GalconFusion
 from lazagne.softwares.games.kalypsomedia import KalypsoMedia
 from lazagne.softwares.games.roguestale import RoguesTale
 from lazagne.softwares.games.turba import Turba
@@ -28,6 +28,8 @@ from lazagne.softwares.maven.mavenrepositories import MavenRepositories
 # Memory
 from lazagne.softwares.memory.keepass import Keepass
 from lazagne.softwares.memory.memorydump import MemoryDump
+# Multimedia
+from lazagne.softwares.multimedia.eyecon import EyeCON
 # Php
 from lazagne.softwares.php.composer import Composer
 # Svn
@@ -39,10 +41,16 @@ from lazagne.softwares.sysadmin.cyberduck import Cyberduck
 from lazagne.softwares.sysadmin.filezilla import Filezilla
 from lazagne.softwares.sysadmin.ftpnavigator import FtpNavigator
 from lazagne.softwares.sysadmin.opensshforwindows import OpenSSHForWindows
+from lazagne.softwares.sysadmin.openvpn import OpenVPN
+from lazagne.softwares.sysadmin.iiscentralcertp import IISCentralCertP
+
+from lazagne.softwares.sysadmin.iisapppool import IISAppPool
 from lazagne.softwares.sysadmin.puttycm import Puttycm
 from lazagne.softwares.sysadmin.rdpmanager import RDPManager
 from lazagne.softwares.sysadmin.unattended import Unattended
+from lazagne.softwares.sysadmin.vnc import Vnc
 from lazagne.softwares.sysadmin.winscp import WinSCP
+from lazagne.softwares.sysadmin.wsl import Wsl
 # Wifi
 from lazagne.softwares.wifi.wifi import Wifi
 # Windows
@@ -51,6 +59,7 @@ from lazagne.softwares.windows.cachedump import Cachedump
 from lazagne.softwares.windows.credman import Credman
 from lazagne.softwares.windows.credfiles import CredFiles
 from lazagne.softwares.windows.hashdump import Hashdump
+#from lazagne.softwares.windows.ppypykatz import Pypykatz
 from lazagne.softwares.windows.lsa_secrets import LSASecrets
 from lazagne.softwares.windows.vault import Vault
 from lazagne.softwares.windows.vaultfiles import VaultFiles
@@ -67,6 +76,7 @@ def get_categories():
         'mails': {'help': 'Email clients supported'},
         'maven': {'help': 'Maven java build tool'},
         'memory': {'help': 'Retrieve passwords from memory'},
+        'multimedia': {'help': 'Multimedia applications, etc'},
         'php': {'help': 'PHP build tool'},
         'svn': {'help': 'SVN clients supported'},
         'sysadmin': {'help': 'SCP/SSH/FTP/FTPS clients supported'},
@@ -115,6 +125,9 @@ def get_modules():
         MemoryDump(),  # retrieve browsers and keepass passwords
         Keepass(),  # should be launched after memory dump
 
+        # Multimedia
+        EyeCON(),
+
         # Php
         Composer(),
 
@@ -129,15 +142,21 @@ def get_modules():
         FtpNavigator(),
         Puttycm(),
         OpenSSHForWindows(),
+        OpenVPN(),
+        IISCentralCertP(),
+        IISAppPool(),
         RDPManager(),
         Unattended(),
         WinSCP(),
+        Vnc(),
+        Wsl(),
 
         # Wifi
         Wifi(),
 
         # Windows
         Autologon(),
+        #Pypykatz(),
         Cachedump(),
         Credman(),
         Hashdump(),

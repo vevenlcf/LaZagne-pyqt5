@@ -76,7 +76,7 @@ def save_hives():
                 info = subprocess.STARTUPINFO()
                 info.dwFlags = STARTF_USESHOWWINDOW
                 info.wShowWindow = SW_HIDE
-                p = subprocess.Popen(command, startupinfo=info, stderr=subprocess.STDOUT,
+                p = subprocess.Popen(command, startupinfo=info, stdin=subprocess.PIPE, stderr=subprocess.STDOUT,
                                      stdout=subprocess.PIPE, universal_newlines=True)
                 results, _ = p.communicate()
             except Exception as e:
@@ -94,7 +94,7 @@ def delete_hives():
         if os.path.exists(constant.hives[h]):
             try:
                 os.remove(constant.hives[h])
-                print_debug('DEBUG', u'Temporary file removed: {filename}'.format(filename=constant.hives[h]))
+                print_debug('DEBUG', u'Temp {hive} removed: {filename}'.format(hive=h, filename=constant.hives[h]))
             except Exception:
-                print_debug('DEBUG', u'Temporary file failed to removed: {filename}'.format(filename=constant.hives[h]))
+                print_debug('DEBUG', u'Temp {hive} failed to removed: {filename}'.format(hive=h, filename=constant.hives[h]))
 
