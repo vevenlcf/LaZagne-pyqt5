@@ -4,10 +4,11 @@ __LaZagne-pyqt5 ！！！__
 Description
 ----
 该项目是在开源LaZagne的基础上，进行pyqt5的界面封装工作。
+
 The __LaZagne project__ is an open source application used to __retrieve lots of passwords__ stored on a local computer. 
 Each software stores its passwords using different techniques (plaintext, APIs, custom algorithms, databases, etc.). This tool has been developed for the purpose of finding these passwords for the most commonly-used software. 
 
-<p align="center"><img src="https://user-images.githubusercontent.com/10668373/43320585-3e34c124-91a9-11e8-9ebc-d8eabafd8ac5.png" alt="The LaZagne project"></p>
+<p align="center"><img src="https://github.com/vevenlcf/LaZagne-pyqt5/blob/master/img/tool2.png" alt="The LaZagne project"></p>
 
 This project has been added to [pupy](https://github.com/n1nj4sec/pupy/) as a post-exploitation module. Python code will be interpreted in memory without touching the disk and it works on Windows and Linux host.
 
